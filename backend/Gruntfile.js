@@ -11,13 +11,13 @@ module.exports = function (grunt) {
             },
 
             dist: {
-                src: ['client/modules.js', 'client/app.js', 'dist/client/templateCache.js', 'client/partials/**/*.js'],
-                dest: 'dist/client/built.js'
+                src: ['client/httpMethod.js', 'client/app.js', 'dist/client/templateCache.js', 'client/partials/**/*.js'],
+                dest: 'dist/client/hotel.js'
             },
 
             final : {
-                src : ['client/lib/angular.min.js', 'client/lib/angular-route.min.js', 'dist/client/client.min.js'],
-                dest : 'dist/client/lisanga.min.js'
+                src : ['client/lib/angular.min.js', 'client/lib/angular-route.min.js'],
+                dest : 'dist/client/vendors.js'
             }
         },
 
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
             build: ['dist/'],
             cache: ['dist/client/templateCache.js'],
             final: ['dist/client/built.js'],
-            min: ['dist/client/client.min.js']
+           // min: ['dist/client/client.min.js']
         },
 
         angularTemplateCache: {
@@ -78,6 +78,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // custom tasks
-    grunt.registerTask('default', ['clean:build', 'angularTemplateCache', 'copy', 'concat:dist', 'clean:cache', 'uglify', 'clean:final', 'concat:final', 'clean:min']);
+    grunt.registerTask('default', ['clean:build', 'angularTemplateCache', 'copy', 'concat:dist', 'clean:cache', 'uglify', 'clean:final', 'concat:final']);
 
 }

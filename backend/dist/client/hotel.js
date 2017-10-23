@@ -1,3 +1,4 @@
+/*My banner*/
 angular.module('httpMethodes', [])
     .controller('HttpMethodeController', ['$http', function ($http) {
         var vm = this;
@@ -39,3 +40,7 @@ angular.module('httpMethodes', [])
         }
 
     }]);
+angular.module('spa').
+run(['$templateCache', function($templateCache) {
+}]);
+/*My footer*/
