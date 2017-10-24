@@ -1,0 +1,10 @@
+# ignore editor-specific working files
+[._]*.s[a_w][a-z]
+.idea/*
+*~
+#ignore npm/node_modules et lib/
+node_modules/
+npm-debug.log
+client/lib/angular-route.min.js
+client/lib/angular.min.js
+dist/client/vendors.js
