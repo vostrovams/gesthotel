@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>GesHotel</title>
+    <script src="./lib/angular.min.js"></script>
+    <script src="httpMethod.js"></script>
+   <script src="finance.js"></script>
+</head>
+
+<body ng-app="httpMethodes">
+    <div ng-controller="HttpMethodeController as httpMethodeCtrl">
+        <button ng-click="httpMethodeCtrl.get()">GET</button>
+        <button ng-click="httpMethodeCtrl.post()">POST</button>
+        <button ng-click="httpMethodeCtrl.put()">PUT</button>
+        <button ng-click="httpMethodeCtrl.delete()">DELETE</button>
+    </div>
+
+</body>
+
+</html>
