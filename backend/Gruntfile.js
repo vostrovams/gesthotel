@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             },
 
             dist: {
-                src: ['client/httpMethod.js', 'client/app.js', 'dist/client/templateCache.js', 'client/partials/**/*.js'],
+                src: ['client/modules/*.js', 'client/app.js', 'dist/client/templateCache.js', 'client/partials/**/*.js'],
                 dest: 'dist/client/hotel.js'
             },
 
