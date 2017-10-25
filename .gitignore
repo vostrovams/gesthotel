@@ -1,5 +1,5 @@
 #ignore npm/node_modules and lib/angular.min.js and lib/angular-route.min.js and dist/client/vendors.js
 node_modules/
 npm-debug.log
-client/lib/angular-route.min.js
+client/lib/
 dist/client/vendors.js
