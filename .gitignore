@@ -1,0 +1,5 @@
+#ignore npm/node_modules and lib/angular.min.js and lib/angular-route.min.js
+node_modules/
+npm-debug.log
+client/lib/
+dist/client/vendors.js
