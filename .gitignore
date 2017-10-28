@@ -1,5 +1,9 @@
-#ignore npm/node_modules and lib/angular.min.js and lib/angular-route.min.js and dist/client/vendors.js
+#ignore npm/node_modules  
 node_modules/
 npm-debug.log
+
+#ignore le dossier client/lib/
 client/lib/
-dist/client/vendors.js
+
+#ignore le dossier dist/
+dist/
