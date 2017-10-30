@@ -5,8 +5,8 @@ angular.module('hotel')
                 templateUrl: "partials/home/home.html"
             })
             .when("/user", {
-                templateUrl: "partials/user/user.html",
-                controller: 'UserController as userCtrl'
+                templateUrl: "partials/client/client.html",
+                controller: 'clientController as clientCtrl'
             })
             .when("/auth", {
                 templateUrl: "partials/auth/auth.html"

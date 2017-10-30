@@ -1,5 +1,5 @@
-angular.module('hotel.user', []);
-angular.module('hotel', ['hotel.user', 'ngRoute']);
+angular.module('hotel.client', []);
+angular.module('hotel', ['hotel.client', 'ngRoute']);
 
 
 
