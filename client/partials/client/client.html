@@ -1,0 +1,18 @@
+<div ng-switch="clientCtrl.state">
+    <div>
+        ivariable <br/>
+        <button ng-click="clientCtrl.changeState('create')">Afficher</button>
+        <button ng-click="clientCtrl.changeState('update')">Modifier</button>
+    </div>
+
+    <div ng-switch-default>
+        Gestion des Clients <br/>
+    </div>
+    <div ng-switch-when="create">
+        <b>liste des clents </b><br/>
+        <button ng-click="clientCtrl.get()">GET</button>
+    </div>
+    <div ng-switch-when="update">
+        <b>update</b>
+    </div>
+</div>
