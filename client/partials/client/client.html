@@ -1,18 +1,425 @@
-<div ng-switch="clientCtrl.state">
-    <div>
-        ivariable <br/>
-        <button ng-click="clientCtrl.changeState('create')">Afficher</button>
-        <button ng-click="clientCtrl.changeState('update')">Modifier</button>
-    </div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
 
-    <div ng-switch-default>
-        Gestion des Clients <br/>
+        <div class="x_title">
+            <h2><i class="fa fa-bars"></i> Client</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div ng-switch="clientCtrl.state">
+
+                <ul class="nav nav-tabs bar_tabs">
+                    <li role="presentation" class=""><a href="" ng-click="clientCtrl.changeState('create')">Créer</a>
+                    </li>
+                    <li role="presentation" class=""><a href="" ng-click="clientCtrl.charger()">Détail</a>
+                    </li>
+
+                </ul>
+
+                <!-- DEBUT -->
+                <div class="tab-content">
+
+                    <!-- TAB_CONTENT1 -->
+                    <div ng-switch-when="create" class="tab-pane fade active in ">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left animated fadeInDown">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nom<span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name" ng-model="clientCtrl.clientNew.nom" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Prénom <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="last-name" ng-model="clientCtrl.clientNew.prenom" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexe</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div  class="btn-group" data-toggle="">
+
+                                        <p>
+                                            Masculin:
+                                            <input ng-model="clientCtrl.clientNew.sexe_client" type="radio" class="flat" name="sexe" value="M"  /> Féminin:
+                                            <input ng-model="clientCtrl.clientNew.sexe_client" type="radio" class="flat" name="sexe"  value="F" />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Adresse <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.adresse" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.email" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date de naissance<span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.dateNais" id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required"
+                                        type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Fonction <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.Fonction" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Téléphone <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.phoneNumber" type="number" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ville de provenance <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.villeProv" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">id_employe <span class="required">*</span>
+                                            </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.clientNew.id_emp" type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12"
+                                        disabled>
+                                </div>
+                            </div>
+{{clientCtrl.clientNew}}
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary">Cancel</button>
+                                    <button type="submit" class="btn btn-success" ng-click="clientCtrl.ajouterClient(clientCtrl.clientNew)">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--  {{clientCtrl.client}}-->
+
+                    <!-- /TAB_CONTENT1 -->
+
+                    <!-- Modif -->
+                    <div ng-switch-when="update" class="tab-pane fade active in">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left animated fadeInDown">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nom<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-names" ng-model="clientCtrl.client.nom_client" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Prénom <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="last-names" ng-model="clientCtrl.client.prenom_client" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexe</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="genders" class="btn-group" data-toggle="buttons">
+                                        <label class="" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input ng-model="clientCtrl.client.sexe_client" type="radio" name="gender" value="M"> &nbsp; Masculin &nbsp;
+                                        </label>
+                                        <label class="" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input ng-model="clientCtrl.client.sexe_client" type="radio" name="gender" value="F" checked=""> Feminin
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Adresse <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.adressePhysique_client" type="text" id="last-namese" name="last-name" required="required"
+                                        class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.email_client" type="text" id="last-namess" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date de naissance<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.dateNaissance_client" id="birthdays" class="date-picker form-control col-md-7 col-xs-12"
+                                        required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Fonction <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.fonction_client" type="text" id="last-named" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Téléphone <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.telephone_client" type="text" id="last-namee" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-nameff">Ville de provenance <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input ng-model="clientCtrl.client.villeProvenance_client" type="text" id="last-namec" name="last-name" required="required"
+                                        class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" ng-click="clientCtrl.init()" class="btn btn-primary">Initialiser</button>
+                                    <button type="submit" ng-click="clientCtrl.modifierClient(clientCtrl.client)" class="btn btn-warning">Modifier</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <!-- /modif -->
+
+
+
+                    <!-- TAB_CONTENT2 -->
+                    <div ng-switch-when="detail" class="tab-pane fade active in ">
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-left top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="detail la réservation..." ng-model="Recherche">
+                                    <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">Go!</button>
+                                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="x_content ">
+
+                                    <div class="x_content animated fadeInDown">
+                                        <table id="example" class="table table-striped responsive-utilities jambo_table">
+                                            <thead>
+                                                <tr class="headings">
+                                                    <th>
+                                                        <input type="checkbox" class="tableflat">
+                                                    </th>
+                                                    <th>Nom </th>
+                                                    <th>Prenom </th>
+                                                    <th>Sexe </th>
+                                                    <th class=" no-link last"><span class="nobr">Action</span></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr ng-if="clientCtrl.client.length===0" class="table-danger">
+                                                    <td colspan="5" style="text-align: center"> aucun client n'est enregistré dans le système </td>
+                                                </tr>
+                                                <tr ng-repeat="c in clientCtrl.client | filter:Recherche" class="even pointer">
+                                                    <td class="a-center ">
+                                                        <input type="checkbox" class="tableflat">
+                                                    </td>
+                                                    <td class=" "> <a href="" ng-click="clientCtrl.changeState2('voir', c)"> {{c.nom_client}} </a></td>
+                                                    <td class=" "> <a href="" ng-click="clientCtrl.changeState2('voir', c)"> {{c.prenom_client}} </a></td>
+                                                    <td class=" "> <a href="" ng-click="clientCtrl.changeState2('voir',c)"> {{c.sexe_client}} </a>
+                                                    </td>
+                                                    <td class=" last">
+                                                        <span><a  href="" title="modifier" alt="" ng-click="clientCtrl.update(c)"><i title="Modifier?" style="color:#50afe0" class="fa fa-edit"></i></a></span>&nbsp;|&nbsp;
+
+                                                        <span><a href=""  alt="" ng-click="clientCtrl.supprimerClient(c.id_client)">
+                                                                                                <i title="Supprimer?" class="fa fa-trash" style="color:#ef5031" ></i>
+                                                                                            </a></span>
+
+
+                                                    </td>
+                                                </tr>
+
+
+                                            </tbody>
+
+                                        </table>
+
+
+                                        <div class="container">
+                                            <div class="text-center">
+                                                <!-- pager -->
+                                                <ul class="pagination">
+                                                    <li>
+                                                        <a href="">Début</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">Précedent</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">suivant</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>Fin</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div ng-switch="clientCtrl.state2">
+
+                                <div ng-switch-when="voir" class="col-md-6">
+                                    <div class="x_panel">
+                                        <div class="x_content">
+
+                                            <div class="row">
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+
+                                                </div>
+                                                <div class="clearfix"></div>
+
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12 animated fadeInDown">
+                                                    <div class="well profile_view">
+                                                        <div class="col-sm-12">
+                                                            <h4 class="brief"><i>Info supplementaire</i></h4>
+                                                            <div class="left col-xs-7">
+                                                                <h2>{{clientCtrl.clientDetail.nom_client}}</h2>
+                                                                <p><strong>Adresse physique: </strong> {{clientCtrl.clientDetail.adressePhysique_client}}
+                                                                </p>
+                                                                <ul class="list-unstyled">
+                                                                    <li><i i class="fa fa-user"></i> Email: {{clientCtrl.clientDetail.email_client}}</li>
+
+                                                                    <li><i class="fa fa-phone"></i> {{clientCtrl.clientDetail.telephone_client}}</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <div class="right col-xs-5 text-center">
+                                                                <img src="lib/images/user.png" alt="" class="img-circle img-responsive">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 bottom text-center">
+                                                            <div class="col-xs-12 col-sm-6 emphasis">
+                                                                <p class="ratings">
+
+                                                                    <a href=""><span class="fa fa-star"></span></a>
+                                                                    <a href=""><span class="fa fa-star"></span></a>
+                                                                    <a href=""><span class="fa fa-star"></span></a>
+                                                                    <a href=""><span class="fa fa-star"></span></a>
+
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6 emphasis">
+                                                                <button type="button" ng-click="clientCtrl.update(clientCtrl.clientDetail)" class="btn btn-primary btn-xs"> <i class="fa fa-user">
+                                                                                            </i> <i class="fa fa-edit-o"></i> Editer </button>
+                                                                <button type="button" class="btn btn-danger btn-xs"> <i class="fa fa-close">
+                                                                                            </i> Annuler </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /TAB_CONTENT2 -->
+
+
+
+
+
+
+                        <!-- TAB_CONTENT3 -->
+
+                        <!-- /TAB_CONTENT3 -->
+
+                    </div>
+
+
+                    <!-- FIN -->
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div ng-switch-when="create">
-        <b>liste des clents </b><br/>
-        <button ng-click="clientCtrl.get()">GET</button>
-    </div>
-    <div ng-switch-when="update">
-        <b>update</b>
-    </div>
-</div>

@@ -27,7 +27,8 @@ module.exports = function (grunt) {
 
                     { expand: true, src: '**', cwd: 'server/', dest: 'dist/server/' },
                     { expand: true, src: 'index.html', cwd: 'client/', dest: 'dist/client', filter: 'isFile' },
-                    { expand: true, src: 'package.json', dest: 'dist', filter: 'isFile' }
+                    { expand: true, src: 'package.json', dest: 'dist', filter: 'isFile' },
+                    { expand: true, src: '**', cwd: 'client/lib2/', dest: 'dist/client/lib' }
                 ]
             }
         },

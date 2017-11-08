@@ -42,17 +42,21 @@ app.get('/client', function (req, res) {
     console.log('traitement requette GET ...');
     Client.afficherList(res);
 });
+app.get('/clientLast', function (req, res) {
+    console.log('traitement requette GET ...');
+    Client.afficherDernier(res);
+});
 app.get('/client/:id', function (req, res) {
     console.log('traitement requette GET ...');
     Client.afficherParId(res, req.params.id);
 });
 app.post('/client', function (req, res) {
     console.log('Traitement requette POST ...');
-    Client.ajouter(res, req.body.nom, req.body.prenom, req.body.sexe, req.body.adresse, req.body.email, req.body.dateArrive, req.body.dateNais, req.body.fonction, req.body.phoneNumber, req.body.villeProv, req.body.id_emp);
+    Client.ajouter(res, req.body.nom, req.body.prenom, req.body.sexe_client, req.body.adresse, req.body.email, req.body.dateNais, req.body.fonction, req.body.phoneNumber, req.body.villeProv, req.body.id_emp);
 });
 app.put('/client/:id', function (req, res) {
     console.log('Traitement requette PUT ...');
-    Client.modifier(res, req.body.nom, req.body.prenom, req.body.sexe, req.body.adresse, req.body.email, req.body.dateArrive, req.body.dateDepart, req.body.dateNais, req.body.fonction, req.body.phoneNumber, req.body.villeProv, req.body.id_emp, req.params.id);
+    Client.modifier(res, req.body.nom_client, req.body.prenom_client, req.body.sexe_client, req.body.adressePhysique_client, req.body.email_client, req.body.dateNaissance_client, req.body.fonction_client, req.body.telephone_client, req.body.villeProvenance_client, req.body.numMat_employe, req.params.id);
 });
 app.delete('/client/:id', function (req, res) {
     console.log('Traitement requette DELETE ...');
